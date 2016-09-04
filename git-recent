@@ -9,8 +9,8 @@
 format="\
 %(HEAD) %(color:yellow)%(refname:short)%(color:reset)|\
 %(color:bold red)%(objectname:short) %(color:bold green)(%(committerdate:relative)) %(color:blue)%(authorname) %(color:reset)%(color:yellow)%(upstream:track)%0a\
-  %(color:black) %(color:reset)|%(contents:subject)%0a\
-  |"
+%(color:black) %(color:reset)|%(contents:subject)%0a
+%(color:black) %(color:reset)|%(contents:body)%0a"
 
 lessopts="--tabs=4 --quit-if-one-screen --RAW-CONTROL-CHARS --no-init"
 
@@ -20,6 +20,7 @@ git for-each-ref \
     --format="$format" \
   | column -ts '|'  \
   | less "$lessopts"
+
 
 # The above command:
 #   for all known branches,
